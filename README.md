@@ -3,7 +3,21 @@ File Scanning Framework (FSF) Docker File
 
 [![](https://badge.imagelayers.io/phirelight/docker-fsf:latest.svg)](https://imagelayers.io/?images=phirelight/docker-fsf:latest 'Get your own badge on imagelayers.io')
 
+This Docker image encapsulates the File Scanning Framework (FSF) by Emerson Electric Company from https://github.com/EmersonElectricCo/fsf
+
+To run this image after installing Docker using a standalone instance, use a command like the following, replacing “~/fsf-workdir" with the path to the location of your FSF working directory:
+
+sudo docker run --rm -it -v ~/fsf-workdir:/home/nonroot/workdir phirelight/docker-fsf
+
+To run this image using a networked instance, use a command like this:
+
+sudo docker run --rm -it -p 5800:5800 -v ~/fsf-workdir:/home/nonroot/workdir phirelight/docker-fsf
+
+Before running FSF, create the ~/fsf-workdir and make it world-accessible (“chmod a+xwr").
+
+
 Introduction
+=
 
 What is the ‘file scanning framework’?
 
