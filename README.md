@@ -1,6 +1,8 @@
 # docker-fsf
 File Scanning Framework (FSF) Docker File
 
+[![](https://badge.imagelayers.io/phirelight/docker-fsf:latest.svg)](https://imagelayers.io/?images=phirelight/docker-fsf:latest 'Get your own badge on imagelayers.io')
+
 Introduction
 
 What is the ‘file scanning framework’?
