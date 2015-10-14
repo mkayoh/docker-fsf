@@ -110,7 +110,8 @@ RUN mkdir -pv /home/nonroot/workdir && \
   git clone https://github.com/EmersonElectricCo/fsf.git && \
   cd fsf/ && \
   sed -i 's/\/FULL\/PATH\/TO/\/home\/nonroot\/fsf/' fsf-server/conf/config.py && \
-  sed -i "/^SCANNER\_CONFIG/ s/\/tmp/\/home\/nonroot\/workdir/" fsf-server/conf/config.py && \
+  sed -i "/^SCANNER\_CONFIG/ s/\/tmp/\/home\/nonroot\/workdir/" fsf-server/conf/config.py 
+  # && \
   #git clone https://github.com/unusedPhD/GithubDownloader.git && \
   #cd GithubDownloader && \
   #python git_downloader.py -r repos.txt -w *.yar* -y rules.yara -o /home/nonroot/fsf/fsf-server/yara
