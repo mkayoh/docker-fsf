@@ -1,7 +1,7 @@
 # docker-fsf
 
-File Scanning Framework (FSF) Docker File
-========================================
+File Scanning Framework (FSF)
+-----------------------------
 
 [![](https://badge.imagelayers.io/phirelight/docker-fsf:latest.svg)](https://imagelayers.io/?images=phirelight/docker-fsf:latest 'Get your own badge on imagelayers.io')
 
