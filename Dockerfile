@@ -111,11 +111,16 @@ RUN mkdir -pv /home/nonroot/workdir && \
   cd fsf/ && \
   sed -i 's/\/FULL\/PATH\/TO/\/home\/nonroot\/fsf/' fsf-server/conf/config.py && \
   sed -i "/^SCANNER\_CONFIG/ s/\/tmp/\/home\/nonroot\/workdir/" fsf-server/conf/config.py && \
-  git clone https://github.com/mkayoh/yarasorter
-  # && \
-  #git clone https://github.com/unusedPhD/GithubDownloader.git && \
-  #cd GithubDownloader && \
-  #python git_downloader.py -r repos.txt -w *.yar* -y rules.yara -o /home/nonroot/fsf/fsf-server/yara
+  git clone https://github.com/mkayoh/yarasorter && \
+  git clone https://github.com/unusedPhD/GithubDownloader.git && \
+  cd GithubDownloader && \
+  mkdir temp && \
+  python git_downloader.py -r repos.txt -w *.yar* -y rules.yara -o temp/ && \
+  python ../yarasorter/sorter.py -f temp/* -o /home/nonroot/fsf/fsf-server/yara/ -r -t -n && \
+  rm -rf /home/nonroot/fsf/fsf-server/yara/Dup_Files /home/nonroot/fsf/fsf-server/yara/Dup_rules /home/nonroot/fsf/fsf-server/yara/Dup_rulenames /home/nonroot/fsf/fsf-server/yara/Broken_rules \
+  /home/nonroot/fsf/fsf-server/yara/Imports /home/nonroot/fsf/fsf-server/yara/Meta_files && \
+  rm /home/nonroot/fsf/fsf-server/yara/rules.yara && \
+  python ../yarasorter/create_meta.py -f /home/nonroot/fsf/fsf-server/yara/* -o /home/nonroot/fsf/fsf-server/yara/
   
 USER root
 RUN ldconfig && \
